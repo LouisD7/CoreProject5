@@ -1,0 +1,5 @@
+[tool.poetry]
+name = "patient-data-backend"
+description = "Pateient data access backend infrastructure"
+version = "0.1"
+readme = "README"
