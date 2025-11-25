@@ -7,7 +7,7 @@ resource "aws_lambda_function" "access_patient_data" {
   function_name    = "access_patient_data"
   filename         = "../build/terraform.zip"
   source_code_hash = filebase64sha256("../build/terraform.zip")
-  handler          = "lambda_function.lambda_handler"
+  handler          = "aws.patient_data_lambda.lambda_handler"
   runtime          = "python3.13"
   role             = aws_iam_role.lambda_exec.arn
 }
