@@ -88,7 +88,29 @@ resource "aws_apigatewayv2_integration" "access_patient_data" {
 resource "aws_apigatewayv2_route" "access_patient_data" {
   api_id = aws_apigatewayv2_api.patient_api.id
 
-  route_key = "GET /hello"
+  route_key = "GET /patient"
+  target    = "integrations/${aws_apigatewayv2_integration.access_patient_data.id}"
+}
+
+#
+resource "aws_apigatewayv2_route" "add_patient_data" {
+  api_id = aws_apigatewayv2_api.patient_api.id
+
+  route_key = "POST /patient"
+  target    = "integrations/${aws_apigatewayv2_integration.access_patient_data.id}"
+}
+
+resource "aws_apigatewayv2_route" "update_patient_data" {
+  api_id = aws_apigatewayv2_api.patient_api.id
+
+  route_key = "PUT /patient"
+  target    = "integrations/${aws_apigatewayv2_integration.access_patient_data.id}"
+}
+
+resource "aws_apigatewayv2_route" "delete_patient_data" {
+  api_id = aws_apigatewayv2_api.patient_api.id
+
+  route_key = "DELETE /patient"
   target    = "integrations/${aws_apigatewayv2_integration.access_patient_data.id}"
 }
 
