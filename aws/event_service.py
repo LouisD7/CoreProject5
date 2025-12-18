@@ -19,4 +19,9 @@ class event_service:
 
         elif self.event.get('httpMethod') == 'DELETE':
             print("DELETE request received")
+
+        return {
+        'statusCode': 200,
+        'body': json.dumps('Hello from Lambda!')
+    }
         
