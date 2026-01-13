@@ -43,6 +43,11 @@ resource "aws_iam_role_policy_attachment" "lambda_policy" {
   policy_arn = "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
 }
 
+resource "aws_iam_role_policy_attachment" "lambda_dynamoroles" {
+  role       = aws_iam_role.lambda_exec.name
+  policy_arn = "arn:aws:iam::aws:policy/AmazonDynamoDBFullAccess"
+}
+
 # aws_apigatewayv2_api.patient_api defines an API Gateway HTTP API named patient_api.
 resource "aws_apigatewayv2_api" "patient_api" {
   name          = "patient_api"
