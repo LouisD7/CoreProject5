@@ -5,4 +5,4 @@ def lambda_handler(event, context):
     
     handle_event = event_service(event)
     
-    return handle_event
+    return handle_event.event_parser()
