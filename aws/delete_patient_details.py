@@ -1,6 +1,5 @@
-import json
 import boto3
-from decimal import Decimal
+from botocore import exceptions
 
 class delete_patient_details():
     def __init__(self, event):
@@ -27,12 +26,18 @@ class delete_patient_details():
                     'statusCode': 400,
                     'body': 'Invalid patient ID check format of patient ID'
                 }
-        print("before table response")
-        self.table.delete_item(
-            Key={
-               'patientID': patient_id
-           }
-        )
+        try:
+            self.table.delete_item(
+                Key={
+                'patientID': patient_id
+            },
+            ConditionExpression="attribute_exists(patientID)" #checks to see if the patient data exists throws an error if it doesnt
+            )
+        except exceptions.ClientError:
+            return {
+                'statusCode': 409, #conflict error
+                'body': f"Item {patient_id} doesn't exist"
+            }
         return {
             'statusCode': 200,
             'body': f"Deleted patient with ID of {patient_id}"

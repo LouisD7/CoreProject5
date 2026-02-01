@@ -1,4 +1,3 @@
-import json
 from aws.event_service import event_service
 
 def lambda_handler(event, context):

@@ -1,6 +1,6 @@
-import json
 from aws.get_patient_details import get_patient_details
 from aws.delete_patient_details import delete_patient_details
+from aws.post_patient_details import post_patient_details
 
 class event_service:
     def __init__(self, event):
@@ -11,15 +11,10 @@ class event_service:
             return(get_patient_details(self.event).get_patient_data())
 
         elif self.event.get('httpMethod') == 'POST':
-            print("POST request received")
+            return(post_patient_details(self.event).post_patient_data())
 
         elif self.event.get('httpMethod') == 'PUT':
             print("PUT request received")
 
         elif self.event.get('httpMethod') == 'DELETE':
             return(delete_patient_details(self.event).delete_patient_data())
-
-        return {
-        'statusCode': 200,
-        'body': json.dumps('Hello from Lambda!')
-    }

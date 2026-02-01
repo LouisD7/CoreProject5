@@ -2,13 +2,13 @@ import boto3
 from botocore import exceptions
 from aws.patient_item import patient_item
 
-class post_patient_details():
+class put_patient_details():
     def __init__(self, event):
         self.event = event
         self.dynamodb = boto3.resource('dynamodb')
         self.table = self.dynamodb.Table('PatientDataTable')
 
-    def post_patient_data(self):
+    def put_patient_data(self):
         request = self.event.get("queryStringParameters")
         patient = patient_item(**request)
         patient.__post_init__()
@@ -25,14 +25,14 @@ class post_patient_details():
                 'phone_number': patient.phone_number,
                 'GP_notes': patient.GP_notes
             },
-            ConditionExpression="attribute_not_exists(patientID)" #checks to see if the patient data already exists throws an error
+            ConditionExpression="attribute_exists(patientID)" #checks to see if the patient data exists
             )
         except exceptions.ClientError:
             return {
                 'statusCode': 409, #conflict error
-                'body': f"Item {patient.patientID} already exists"
+                'body': f"Item {patient.patientID} doesn't exists"
             }
         return {
             'statusCode': 200,
-            'body': f"Item {patient.patientID} successfuly added"
+            'body': f"Item {patient.patientID} successfuly updated"
         }

@@ -43,6 +43,7 @@ resource "aws_iam_role_policy_attachment" "lambda_policy" {
   policy_arn = "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
 }
 
+# aws_iam_role_policy_attachment.lambda_policy attaches a policy the IAM role. The AmazonDynamoDBFullAccess is an AWS managed policy that allows your Lambda function to access dynamo.
 resource "aws_iam_role_policy_attachment" "lambda_dynamoroles" {
   role       = aws_iam_role.lambda_exec.name
   policy_arn = "arn:aws:iam::aws:policy/AmazonDynamoDBFullAccess"

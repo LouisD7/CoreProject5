@@ -52,11 +52,11 @@
         ]
     },
     "queryStringParameters": {
-        "patientID": "21"
+        "patientID": "300001420"
     },
     "multiValueQueryStringParameters": {
         "patientID": [
-            "21"
+            "300001420"
         ]
     },
     "requestContext": {
