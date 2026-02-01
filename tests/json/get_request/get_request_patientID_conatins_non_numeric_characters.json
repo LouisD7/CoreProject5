@@ -1,0 +1,97 @@
+{
+    "version": "1.0",
+    "resource": "/patient",
+    "path": "/patient_data_lambda_stage/patient",
+    "httpMethod": "GET",
+    "headers": {
+        "Content-Length": "0",
+        "Host": "7g6p9cvrp3.execute-api.eu-west-2.amazonaws.com",
+        "Postman-Token": "29349764-fa73-4f0b-af3c-823c1592d775",
+        "User-Agent": "PostmanRuntime/7.39.1",
+        "X-Amzn-Trace-Id": "Root=1-6941bbdd-418f7a647a8a4aa96c1532a9",
+        "X-Forwarded-For": "151.226.136.80",
+        "X-Forwarded-Port": "443",
+        "X-Forwarded-Proto": "https",
+        "accept": "* /*",
+        "accept-encoding": "gzip, deflate, br",
+        "cache-control": "no-cache"
+    },
+    "multiValueHeaders": {
+        "Content-Length": [
+            "0"
+        ],
+        "Host": [
+            "7g6p9cvrp3.execute-api.eu-west-2.amazonaws.com"
+        ],
+        "Postman-Token": [
+            "29349764-fa73-4f0b-af3c-823c1592d775"
+        ],
+        "User-Agent": [
+            "PostmanRuntime/7.39.1"
+        ],
+        "X-Amzn-Trace-Id": [
+            "Root=1-6941bbdd-418f7a647a8a4aa96c1532a9"
+        ],
+        "X-Forwarded-For": [
+            "151.226.136.80"
+        ],
+        "X-Forwarded-Port": [
+            "443"
+        ],
+        "X-Forwarded-Proto": [
+            "https"
+        ],
+        "accept": [
+            "*/*"
+        ],
+        "accept-encoding": [
+            "gzip, deflate, br"
+        ],
+        "cache-control": [
+            "no-cache"
+        ]
+    },
+    "queryStringParameters": {
+        "patientID": "3C000A"
+    },
+    "multiValueQueryStringParameters": {
+        "patientID": [
+            "3C000A"
+        ]
+    },
+    "requestContext": {
+        "accountId": "149731130105",
+        "apiId": "7g6p9cvrp3",
+        "domainName": "7g6p9cvrp3.execute-api.eu-west-2.amazonaws.com",
+        "domainPrefix": "7g6p9cvrp3",
+        "extendedRequestId": "VspKog6KrPEEPBg=",
+        "httpMethod": "GET",
+        "identity": {
+            "accessKey": "None",
+            "accountId": "None",
+            "caller": "None",
+            "cognitoAmr": "None",
+            "cognitoAuthenticationProvider": "None",
+            "cognitoAuthenticationType": "None",
+            "cognitoIdentityId": "None",
+            "cognitoIdentityPoolId": "None",
+            "principalOrgId": "None",
+            "sourceIp": "151.226.136.80",
+            "user": "None",
+            "userAgent": "PostmanRuntime/7.39.1",
+            "userArn": "None"
+        },
+        "path": "/patient_data_lambda_stage/patient",
+        "protocol": "HTTP/1.1",
+        "requestId": "VspKog6KrPEEPBg=",
+        "requestTime": "16/Dec/2025: 20: 06: 53 +0000",
+        "requestTimeEpoch": 1765915613274,
+        "resourceId": "GET /patient",
+        "resourcePath": "/patient",
+        "stage": "patient_data_lambda_stage"
+    },
+    "pathParameters": "None",
+    "stageVariables": "None",
+    "body": "None",
+    "isBase64Encoded": "False"
+}

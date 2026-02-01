@@ -6,5 +6,11 @@ terraform {
     }
   }
 
+  backend "s3" {
+    bucket = "patient-lambda-terraform-state"
+    region = "eu-west-2"
+    key    = "Terraform/terraform.tfstate"
+  }
+
   required_version = ">= 1.2"
 }
