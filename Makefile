@@ -14,7 +14,7 @@ build-terraform:
 #export the poetry dependencies to a requirements.txt file without hashes
 	poetry export -f requirements.txt --without-hashes -o build/terraform/requirements.txt
 #install the dependencies listed in requirements.txt to the build/terraform directory
-	poetry run pip install -r build/terraform/requirements.txt -t build/terraform/
+	poetry run pip install --platform manylinux2014_x86_64 --python-version 3.13 --only-binary=:all: --upgrade -r build/terraform/requirements.txt -t build/terraform/
 #change to the build/terraform directory and create a zip file of its contents, excluding certain files and directories
 	cd build/terraform && zip -r ../terraform.zip * --exclude ".gitignore" "*__pycache__/*" "*tests/" 
 #remove the build/terraform directory to clean up
@@ -24,6 +24,6 @@ build-terraform:
 #print a message indicating the completion of the build process
 	@echo "Terraform apply completed."
 #then remove the zip file to clean up
-	@cd ../build
+	@ls
 	@rm build/terraform.zip
 	@echo "built terraform.zip in $(build) directory"

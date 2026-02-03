@@ -1,4 +1,5 @@
 import boto3
+import json
 from botocore import exceptions
 from aws.patient_item import patient_item
 
@@ -9,8 +10,8 @@ class post_patient_details():
         self.table = self.dynamodb.Table('PatientDataTable')
 
     def post_patient_data(self):
-        request = self.event.get("queryStringParameters")
-        patient = patient_item(**request)
+        request = self.event.get("body")
+        patient = patient_item(**json.loads(request))
         patient.__post_init__()
         try:
             self.table.put_item(

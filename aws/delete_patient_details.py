@@ -8,7 +8,7 @@ class delete_patient_details():
         self.table = self.dynamodb.Table('PatientDataTable')
 
     def delete_patient_data(self):
-        patient_id = self.event.get('queryStringParameters').get('patientID')
+        patient_id = self.event.get('queryStringParameters', {}).get('patientID')
         if patient_id is None:
             return {
                 'statusCode': 400,
@@ -21,7 +21,7 @@ class delete_patient_details():
                     'body': 'Invalid patient ID Incorrect length'
                 }
             patient_id = int(patient_id)
-        except TypeError, ValueError:
+        except (TypeError, ValueError):
             return {
                     'statusCode': 400,
                     'body': 'Invalid patient ID check format of patient ID'
@@ -35,7 +35,7 @@ class delete_patient_details():
             )
         except exceptions.ClientError:
             return {
-                'statusCode': 409, #conflict error
+                'statusCode': 404,
                 'body': f"Item {patient_id} doesn't exist"
             }
         return {
