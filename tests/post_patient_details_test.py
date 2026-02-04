@@ -37,7 +37,7 @@ class TestPostPaientDetails(unittest.TestCase):
         self.assertEqual(response, test_variables.HAPPY_POST_RESPONSE)
 
     @patch_boto(get_botocore_exception())
-    def test_post_request_unhappy_path_returns_409(self):
+    def test_post_request_unhappy_path_returns_404(self):
         event = post_patient_details(json_file_parser("json\\post_request\\post_request.json"))
         response = event.post_patient_data()
         self.assertEqual(response, test_variables.UNHAPPY_POST_RESPONSE)

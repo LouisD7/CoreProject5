@@ -29,7 +29,7 @@ HAPPY_DELETE_RESPONSE = {
         }
 
 UNHAPPY_DELETE_RESPONSE_PATIENT_DOESNT_EXIST = {
-                'statusCode': 409, #conflict error
+                'statusCode': 404, #conflict error
                 'body': "Item 300001 doesn't exist"
             }
 

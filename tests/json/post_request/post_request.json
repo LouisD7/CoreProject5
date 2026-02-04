@@ -99,7 +99,7 @@
         "stage": "patient_data_lambda_stage"
     },
     "pathParameters": "None",
-    "stageVariables": "None",
-    "body": "None",
+    "stageVariables": "None:",
+    "body": "{\"patientID\": \"300077\",\"Age\": \"19\",\"first_name\": \"John\",\"Gender\": \"gamer\",\"general_practice\": \"general_practice\",\"GP_notes\": {},\"home_address\": \"home_address\",\"last_name\": \"EggBert\",\"phone_number\": \"+44752189873064\"}",
     "isBase64Encoded": "False"
 }

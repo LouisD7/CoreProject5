@@ -37,7 +37,7 @@ class TestDeletePatientDetails(unittest.TestCase):
         self.assertEqual(response, test_variables.HAPPY_DELETE_RESPONSE)
     
     @patch_boto(get_botocore_exception())
-    def test_delete_patient_details_patient_doesnt_exist_returns_200(self):
+    def test_delete_patient_details_patient_doesnt_exist_returns_404(self):
         event = delete_patient_details(json_file_parser("json\\get_request\\get_request.json"))
         response = event.delete_patient_data()
         self.assertEqual(response, test_variables.UNHAPPY_DELETE_RESPONSE_PATIENT_DOESNT_EXIST)
